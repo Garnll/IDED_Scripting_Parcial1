@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    GameController gameController;
+	void Start ()
+    {
+        gameController = GameController.Instance;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            gameController.ActiveBase.AttackWithCatapult();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            gameController.ActiveBase.AttackWithRay();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            gameController.ActiveBase.Repair();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gameController.ActiveBase.Defend();
+        }
+    }
 }

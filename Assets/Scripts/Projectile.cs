@@ -48,6 +48,13 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
+        Move();
+    }
+
+    private void Move()
+    {
+        elapsedTime += Time.deltaTime;
+        transform.position = Vector3.Slerp(initialLocation, targetLocation, elapsedTime / flightTime);
     }
 
     private void AutoDestroy()
